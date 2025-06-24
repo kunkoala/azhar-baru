@@ -11,6 +11,9 @@ const navItems = {
   "/blog": {
     name: "blog",
   },
+  "/music": {
+    name: "music",
+  },
   "https://www.linkedin.com/in/azharfr": {
     name: "linkedin",
   },

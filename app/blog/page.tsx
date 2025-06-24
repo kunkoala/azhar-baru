@@ -1,3 +1,4 @@
+import { Page } from "@/components/Page";
 import { BlogPosts } from "@/components/posts";
 
 export const metadata = {
@@ -5,11 +6,13 @@ export const metadata = {
   description: "Read my blog.",
 };
 
-export default function Page() {
+export default function BlogPage() {
   return (
-    <section>
-      <h1 className="font-semibold text-2xl mb-8 tracking-tighter">My Blog</h1>
+    <Page>
+      <h1 className="font-semibold text-4xl mb-8 tracking-tighter">
+        Writings & Thoughts
+      </h1>
       <BlogPosts />
-    </section>
+    </Page>
   );
 }
