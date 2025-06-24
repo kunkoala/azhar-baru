@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
+export default function ProjectPage({ params }) {
   const project = getProject(params.slug);
 
   if (!project) {
