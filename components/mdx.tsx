@@ -4,7 +4,33 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 
-function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
+interface TableData {
+  headers: string[];
+  rows: string[][];
+}
+
+interface CustomLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
+  children: React.ReactNode;
+}
+
+interface RoundedImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
+  alt: string;
+  src: string;
+  width?: number;
+  height?: number;
+}
+
+interface CodeProps extends React.HTMLAttributes<HTMLElement> {
+  children: string;
+}
+
+interface HeadingProps {
+  children: React.ReactNode;
+}
+
+function Table({ data }: { data: TableData }) {
   const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ));
@@ -26,12 +52,12 @@ function Table({ data }: { data: { headers: string[]; rows: string[][] } }) {
   );
 }
 
-function CustomLink(props) {
-  const href = props.href;
+function CustomLink(props: CustomLinkProps) {
+  const { href, ...restProps } = props;
 
   if (href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} {...restProps}>
         {props.children}
       </Link>
     );
@@ -44,16 +70,17 @@ function CustomLink(props) {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
-function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+function RoundedImage(props: RoundedImageProps) {
+  const { alt, ...restProps } = props;
+  return <Image alt={alt} className="rounded-lg" {...restProps} />;
 }
 
-function Code({ children, ...props }) {
+function Code({ children, ...props }: CodeProps) {
   const codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
-function slugify(str) {
+function slugify(str: string): string {
   return str
     .toString()
     .toLowerCase()
@@ -64,9 +91,9 @@ function slugify(str) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
-function createHeading(level) {
-  const Heading = ({ children }) => {
-    const slug = slugify(children);
+function createHeading(level: number) {
+  const Heading = ({ children }: HeadingProps) => {
+    const slug = slugify(children as string);
     return React.createElement(
       `h${level}`,
       { id: slug },
@@ -99,7 +126,12 @@ const components = {
   Table,
 };
 
-export function CustomMDX(props) {
+interface CustomMDXProps {
+  source: string;
+  components?: Record<string, React.ComponentType<unknown>>;
+}
+
+export function CustomMDX(props: CustomMDXProps) {
   return (
     <MDXRemote
       {...props}
