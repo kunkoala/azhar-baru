@@ -19,15 +19,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: "Next.js Portfolio Starter",
-    template: "%s | Next.js Portfolio Starter",
+    default: "Azhar Rahadian",
+    template: "%s | Azhar Rahadian",
   },
-  description: "This is my portfolio.",
+  description: "Azhar Rahadian's Portfolio",
   openGraph: {
-    title: "My Portfolio",
-    description: "This is my portfolio.",
+    title: "Azhar Rahadian",
+    description: "Azhar Rahadian's Portfolio",
     url: baseUrl,
-    siteName: "My Portfolio",
+    siteName: "Azhar Rahadian",
     locale: "en_US",
     type: "website",
   },

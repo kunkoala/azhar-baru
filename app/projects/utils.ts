@@ -15,10 +15,18 @@ export const projects: Project[] = [
   {
     slug: "solidify",
     title: "Solidify - Resume & Job Project",
-    description: "A full-stack web application using FastAPI, Next.js, and CrewAI that leverages multi-agent AI to provide comprehensive resume analysis and optimization using RAG and Prompt Engineering.",
+    description:
+      "A full-stack web application using FastAPI, Next.js, and CrewAI that leverages multi-agent AI to provide comprehensive resume analysis and optimization using RAG and Prompt Engineering.",
     date: "2025 - Now",
     image: "/projects/solidify.png", // Add your project images to public/projects/
-    technologies: ["FastAPI", "Next.js", "CrewAI", "PostgreSQL", "Docker", "JWT"],
+    technologies: [
+      "FastAPI",
+      "Next.js",
+      "CrewAI",
+      "PostgreSQL",
+      "Docker",
+      "JWT",
+    ],
     github: "https://github.com/yourusername/solidify",
     content: `
       <h2>Project Overview</h2>
@@ -43,12 +51,13 @@ export const projects: Project[] = [
       
       <h3>Challenges & Solutions</h3>
       <p>The main challenge was implementing a scalable multi-agent AI system that could provide accurate and helpful resume feedback. This was solved by using CrewAI to orchestrate multiple specialized agents, each handling different aspects of resume analysis.</p>
-    `
+    `,
   },
   {
     slug: "voice-bot-st-gallen",
     title: "Voice Bot for Canton of St. Gallen",
-    description: "A functional voice bot prototype created during Start HACK Hackathon, enabling phone call-based citizen support for basic inquiries using GPT-4 and Microsoft Azure.",
+    description:
+      "A functional voice bot prototype created during Start HACK Hackathon, enabling phone call-based citizen support for basic inquiries using GPT-4 and Microsoft Azure.",
     date: "March 2024",
     image: "/projects/voice-bot.png",
     technologies: ["Python", "GPT-4", "RAG", "Microsoft Azure", "Twilio"],
@@ -76,15 +85,22 @@ export const projects: Project[] = [
       
       <h3>Impact</h3>
       <p>This prototype demonstrated the potential for AI-powered citizen services, reducing wait times and providing 24/7 support for basic government inquiries.</p>
-    `
+    `,
   },
   {
     slug: "esid-project",
     title: "ESID Project - DLR",
-    description: "Enhanced the Open-Source ESID Project interface with dynamic features and established the front-end foundation using VVAFER approach, AmCharts 5, and OpenLayers.",
+    description:
+      "Enhanced the Open-Source ESID Project interface with dynamic features and established the front-end foundation using VVAFER approach, AmCharts 5, and OpenLayers.",
     date: "September 2024 - Now",
     image: "/projects/esid.png",
-    technologies: ["JavaScript", "AmCharts 5", "OpenLayers", "VVAFER", "Frontend"],
+    technologies: [
+      "JavaScript",
+      "AmCharts 5",
+      "OpenLayers",
+      "VVAFER",
+      "Frontend",
+    ],
     content: `
       <h2>Project Overview</h2>
       <p>Working as a Software Engineer at DLR, I contributed to the Open-Source ESID Project, focusing on improving user experience and establishing a robust front-end foundation.</p>
@@ -107,8 +123,8 @@ export const projects: Project[] = [
       
       <h3>Results</h3>
       <p>The improvements resulted in cleaner code, better maintainability, and a more intuitive user experience for the ESID Project interface.</p>
-    `
-  }
+    `,
+  },
 ];
 
 export function getProjects(): Project[] {
@@ -117,4 +133,4 @@ export function getProjects(): Project[] {
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((project) => project.slug === slug);
-} 
+}
